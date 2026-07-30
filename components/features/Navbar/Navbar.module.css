@@ -1,0 +1,50 @@
+.navbar {
+  width: 100%;
+  background-color: #000;
+}
+
+.navbarContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbarLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbarIconWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.searchForm {
+  position: relative;
+}
+.searchInput {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  border: 2px solid #333;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.searchButton {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+}
