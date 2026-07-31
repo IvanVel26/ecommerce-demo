@@ -1,14 +1,3 @@
-.container {
-  width: 100%;
-  background-color: #ffff;
-  padding: 3rem 2rem;
-  color: black;
-}
-
-.catalog {
-  width: 100%;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-color: #f8f8f8;
-  color: black;
+.categoriesSection {
+  background: var(--card-bg);
 }

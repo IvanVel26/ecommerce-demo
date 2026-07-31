@@ -1,17 +1,19 @@
-import styles from "./CatCard.module.css";
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
+import styles from "./CatCard.module.css";
 
-interface cardProps {
-  text: string;
+interface CatCardProps {
+  label: string;
+  icon: LucideIcon;
 }
 
-export default function CatCard({ text }: cardProps) {
+export default function CatCard({ label, icon: Icon }: CatCardProps) {
   return (
-    <Link href="/" className={styles.container}>
-      <div className={styles.containerImagen}>
-        <img src="/mouse.jpg" alt="mouseImagen" className={styles.image} />
+    <Link href={`/productos?buscar=${encodeURIComponent(label)}`} className={styles.container}>
+      <div className={styles.iconWrapper}>
+        <Icon size={36} strokeWidth={1.5} />
       </div>
-      <p>{text}</p>
+      <p>{label}</p>
     </Link>
   );
 }

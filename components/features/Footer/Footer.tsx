@@ -1,46 +1,32 @@
-import styles from "./Footer.module.css";
 import Link from "next/link";
-import Image from "next/image";
+import { Globe, MessageCircle, Mail, Phone } from "lucide-react";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
-        <div className={styles.navFooter}>
-          <h3>Navegacion</h3>
+        <div>
+          <h3>Navegación</h3>
           <Link href="/">Inicio</Link>
-          <Link href="/">Productos</Link>
-          <Link href="/">Preguntas Frecuentes</Link>
+          <Link href="/productos">Productos</Link>
+          <Link href="/preguntas-frecuentes">Preguntas frecuentes</Link>
         </div>
-        <div className={styles.catFooter}>
-          <h3>Categorias</h3>
-          <Link href="/">Mouse</Link>
-          <Link href="/">Teclados</Link>
-          <Link href="/">Celulares</Link>
-          <Link href="/">Producto</Link>
-        </div>
-        <div className={styles.contactFooter}>
+
+        <div>
           <h3>Contacto</h3>
-          <p>email@email.com</p>
-          <p>381 1111 111</p>
-          <div className={styles.linksFooter}>
-            <a href="">
-              <Image
-                src="/facebook.png"
-                alt="facebook logo"
-                width={20}
-                height={20}
-                className={styles.logo}
-              />
+          <p className={styles.contactLine}>
+            <Mail size={14} /> email@email.com
+          </p>
+          <p className={styles.contactLine}>
+            <Phone size={14} /> 381 111 1111
+          </p>
+          <div className={styles.socials}>
+            <a href="#" aria-label="Sitio web">
+              <Globe size={20} />
             </a>
-            <a href="">
-              <Image
-                src="/instagram.png"
-                alt="facebook logo"
-                width={20}
-                height={20}
-                className={styles.logo}
-              />
+            <a href="#" aria-label="Redes sociales">
+              <MessageCircle size={20} />
             </a>
           </div>
         </div>
