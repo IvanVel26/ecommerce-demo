@@ -1,35 +1,45 @@
+import { Package } from "lucide-react";
 import styles from "./Card.module.css";
-import Image from "next/image";
+import type { Product } from "@/data/products";
+import { getProductIcon } from "@/lib/categoryIcons";
 
-interface cardProps {
-  size: number;
-  text: string;
+interface CardProps {
+  product: Product;
 }
 
-export default function Card({ size, text }: cardProps) {
-  let estilo;
+const toneByCategory: Record<string, string> = {
+  Accesorios: "tone0",
+  Audio: "tone1",
+  Monitores: "tone2",
+};
 
-  if (size === 2) {
-    estilo = `${styles.cardBig} ${styles.cardContainer}`;
-  } else {
-    estilo = styles.cardContainer;
-  }
+export default function Card({ product }: CardProps) {
+  const outOfStock = product.stock === 0;
+  const Icon = getProductIcon(product.name);
+  const tone = toneByCategory[product.category] ?? "tone0";
 
   return (
-    <div className={estilo}>
-      <Image
-        src="/mouse.jpg"
-        alt="mouse imagen"
-        fill
-        className={styles.cardImage}
-      />
+    <div className={styles.card}>
+      <div className={`${styles.imagePlaceholder} ${styles[tone]}`}>
+        <Icon size={40} strokeWidth={1} />
+      </div>
+
       <div className={styles.content}>
-        <div>
-          <h1>{text}</h1>
-          <p>description</p>
-          <p>price</p>
+        <span className={styles.category}>{product.category}</span>
+        <h3 className={styles.name}>{product.name}</h3>
+        <p className={styles.description}>{product.description}</p>
+
+        <div className={styles.footer}>
+          <span className={styles.price}>${product.price.toLocaleString("es-AR")}</span>
+          <span className={`${styles.stock} ${outOfStock ? styles.outOfStock : ""}`}>
+            <Package size={14} />
+            {outOfStock ? "Sin stock" : `${product.stock} disponibles`}
+          </span>
         </div>
-        <button>Ver mas</button>
+
+        <button className={styles.button} disabled={outOfStock}>
+          {outOfStock ? "No disponible" : "Agregar al carrito"}
+        </button>
       </div>
     </div>
   );
