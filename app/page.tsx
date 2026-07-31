@@ -1,10 +1,16 @@
-import Image from "next/image";
 import styles from "./page.module.css";
+import Hero from "@/components/features/Hero/Hero";
+import Catalog from "@/components/features/Catalog/Catalog";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <section className="hero-section"></section>
+    <div>
+      <div className={styles.container}>
+        <Hero />
+      </div>
+      <div className={styles.catalog}>
+        <Catalog />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,28 @@
+.footer {
+  width: 100%;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navFooter,
+.catFooter,
+.contactFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.linksFooter {
+  display: flex;
+  gap: 1rem;
+}
+
+.logo {
+  filter: invert(1);
+}
