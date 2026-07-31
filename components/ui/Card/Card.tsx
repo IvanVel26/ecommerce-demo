@@ -1,4 +1,5 @@
 import styles from "./Card.module.css";
+
 import Image from "next/image";
 
 interface cardProps {
